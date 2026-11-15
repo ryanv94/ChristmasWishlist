@@ -173,6 +173,21 @@ h1 .line:nth-child(3) > span { animation-delay: 180ms; }
 .budget output { color: var(--snow); font-weight: 600; font-variant-numeric: tabular-nums; }
 .budget input { width: 100%; margin: 0; accent-color: var(--brass); height: 20px; }
 
+.sort { display: grid; gap: var(--s1); flex: none; font-size: .875rem; color: var(--mute); }
+.sort select {
+  appearance: none;
+  padding: var(--s1) var(--s6) var(--s1) 0;
+  border: 0; border-bottom: 1px solid rgb(242 236 228 / .3);
+  border-radius: 0;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23f2ece4' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4.5l4 4 4-4'/%3E%3C/svg%3E") no-repeat right center;
+  color: var(--snow);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 150ms ease-out;
+}
+.sort select:hover { border-color: var(--brass); }
+.sort option { background: var(--claret-2); color: var(--snow); }
+
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   padding: var(--s3) var(--s5);
@@ -345,6 +360,13 @@ h1 .line:nth-child(3) > span { animation-delay: 180ms; }
 .spot-close:hover { border-color: var(--brass); color: var(--brass); }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 1360px) {
+  .controls-inner { flex-wrap: wrap; gap: var(--s3) var(--s6); }
+  .chips { flex: 1 1 100%; order: 1; }
+  .budget { order: 2; }
+  .sort { order: 3; }
+  #surprise { order: 4; margin-left: auto; }
+}
 @media (max-width: 960px) {
   .hero { align-items: start; padding-top: var(--s7); }
   .hero-copy { max-width: none; }
@@ -353,7 +375,8 @@ h1 .line:nth-child(3) > span { animation-delay: 180ms; }
   .controls-inner { flex-wrap: wrap; gap: var(--s3) var(--s5); }
   .chips { flex: 1 1 100%; order: 1; }
   .budget { flex: 1 1 10rem; width: auto; order: 2; }
-  #surprise { order: 3; }
+  .sort { order: 3; }
+  #surprise { order: 4; }
   :root { --row: 150px; --gap: 10px; }
   .grid { grid-template-columns: repeat(6, 1fr); }
   .tile, .grid.is-filtered .tile { grid-column: span 3; }

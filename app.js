@@ -11,7 +11,7 @@
   const img = (w) => (w.img ? `assets/img/${w.img}.webp` : "");
 
   /* ---------- state ---------- */
-  const state = { cat: "All", budget: 250, picks: new Set() };
+  const state = { cat: "All", budget: 250, sort: "curated", picks: new Set() };
   const max = Math.ceil(Math.max(...WISHES.map((w) => w.price)) / 5) * 5;
   try { JSON.parse(localStorage.getItem("rv-picks") || "[]").forEach((id) => WISHES.some((w) => w.id === id) && state.picks.add(id)); } catch (e) {}
   const savePicks = () => { try { localStorage.setItem("rv-picks", JSON.stringify([...state.picks])); } catch (e) {} };
@@ -72,6 +72,15 @@
     applyFilters();
   });
 
+  /* ---------- sort ---------- */
+  $("sort").addEventListener("change", (e) => { state.sort = e.target.value; applySort(); applyFilters(); });
+  function sorted() {
+    if (state.sort === "curated") return WISHES;
+    const dir = state.sort === "asc" ? 1 : -1;
+    return [...WISHES].sort((a, b) => (a.price - b.price) * dir || WISHES.indexOf(a) - WISHES.indexOf(b));
+  }
+  function applySort() { sorted().forEach((w) => grid.appendChild(tiles.get(w.id))); }
+
   /* ---------- grid ---------- */
   const grid = $("grid");
   const plus = '<svg class="i-plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg>';
@@ -109,8 +118,8 @@
   const eligible = () => WISHES.filter((w) => (state.cat === "All" || w.cat === state.cat) && w.price <= state.budget);
 
   function applyFilters() {
-    const filtered = state.cat !== "All";
-    grid.classList.toggle("is-filtered", filtered);
+    // the curated mosaic only holds together unfiltered and unsorted; otherwise use an even grid
+    grid.classList.toggle("is-filtered", state.cat !== "All" || state.sort !== "curated");
     let shown = 0;
     WISHES.forEach((w) => {
       const t = tiles.get(w.id);
@@ -198,7 +207,7 @@
   }
 
   function step(dir) {
-    const list = WISHES.filter((w) => !tiles.get(w.id).classList.contains("hide"));
+    const list = sorted().filter((w) => !tiles.get(w.id).classList.contains("hide"));
     const i = list.findIndex((w) => w.id === current.id);
     render(list[(i + dir + list.length) % list.length], true);
   }

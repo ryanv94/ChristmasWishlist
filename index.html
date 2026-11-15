@@ -49,6 +49,14 @@
           <label for="budget">Spend up to <output id="budgetOut" for="budget">€250</output></label>
           <input type="range" id="budget" min="15" max="250" step="5" value="250">
         </div>
+        <div class="sort">
+          <label for="sort">Sort by</label>
+          <select id="sort">
+            <option value="curated">Featured</option>
+            <option value="asc">Price, low to high</option>
+            <option value="desc">Price, high to low</option>
+          </select>
+        </div>
         <button class="btn btn-solid" id="surprise" type="button">Surprise me</button>
       </div>
     </div>
