@@ -10,9 +10,9 @@ window.WISHES = [
   { id: "trex", img: "02", title: "Tyrannosaurus rex fossil", note: "LEGO set 76968", cat: "LEGO", store: "LEGO", price: 249.99, url: "https://www.lego.com/en-ie/product/dinosaur-fossils-tyrannosaurus-rex-76968", size: "w" },
   { id: "dc3", img: "03", title: "Douglas DC-3 Pan Am airliner", note: "LEGO set 11378", cat: "LEGO", store: "LEGO", price: 219.99, url: "https://www.lego.com/en-ie/product/douglas-dc-3-pan-am-airliner-11378", size: "w" },
 
-  { id: "p6", img: "07", title: "Patagonia P-6 Logo Uprisal Hoody", note: "Men's", cat: "Clothing", store: "Patagonia", price: 100.0, url: "https://eu.patagonia.com/ie/en/product/mens-p-6-logo-uprisal-hoody/198077984740.html", size: "s" },
-  { id: "daily", img: "08", title: "Patagonia Daily Hoody", note: "Men's", cat: "Clothing", store: "Patagonia", price: 120.0, url: "https://eu.patagonia.com/ie/en/product/mens-daily-hoody/199346045537.html", size: "s" },
-  { id: "bsqz", img: "09", title: "Patagonia Better Sweater quarter-zip", note: "Fleece, men's", cat: "Clothing", store: "Patagonia", price: 140.0, url: "https://eu.patagonia.com/ie/en/product/mens-better-sweater-quarter-zip-fleece/25523.html?dwvar_25523_color=NENA", size: "s" },
+  { id: "p6", img: "07", title: "Patagonia P-6 Logo Uprisal Hoody", note: "Men's, size L", cat: "Clothing", store: "Patagonia", price: 100.0, url: "https://eu.patagonia.com/ie/en/product/mens-p-6-logo-uprisal-hoody/198077984740.html", size: "s" },
+  { id: "daily", img: "08", title: "Patagonia Daily Hoody", note: "Men's, size L", cat: "Clothing", store: "Patagonia", price: 120.0, url: "https://eu.patagonia.com/ie/en/product/mens-daily-hoody/199346045537.html", size: "s" },
+  { id: "bsqz", img: "09", title: "Patagonia Better Sweater quarter-zip", note: "Fleece, men's, size L", cat: "Clothing", store: "Patagonia", price: 140.0, url: "https://eu.patagonia.com/ie/en/product/mens-better-sweater-quarter-zip-fleece/25523.html?dwvar_25523_color=NENA", size: "s" },
   { id: "carhartt", img: "15", title: "Carhartt Paxton quarter-zip sweatshirt", note: "Brown or green, size L", cat: "Clothing", store: "Carhartt", price: 79.99, url: "https://www.carhartt.com/en-eu/p/paxton-14-zip-sweatshirt/100617", size: "s" },
 
   { id: "wallace", img: "01", title: "Wallace & Gromit", note: "LEGO set 21371", cat: "LEGO", store: "LEGO", price: 99.99, url: "https://www.lego.com/en-ie/product/wallace-gromit-21371", size: "b", right: true },
@@ -39,5 +39,14 @@ window.WISHES = [
 
   { id: "vac", img: "17", title: "HOTO cordless car vacuum", note: "Handheld and portable", cat: "Car", store: "Amazon UK", price: 81.99, url: "https://www.amazon.co.uk/dp/B0GYSHD9JL", size: "w" },
   { id: "foamer", img: "28", title: "Snow foam machine", note: "For washing the car", cat: "Car", store: "Amazon UK", price: 18.48, url: "https://www.amazon.co.uk/dp/B07T6KS5BJ", size: "s" },
-  { id: "foam", img: "29", title: "Snow foam", note: "The soap to go in the machine", cat: "Car", store: "Amazon UK", price: 20.0, url: "https://www.amazon.co.uk/dp/B079QNQL1R", size: "s" }
+  { id: "foam", img: "29", title: "Snow foam", note: "The soap to go in the machine", cat: "Car", store: "Amazon UK", price: 20.0, url: "https://www.amazon.co.uk/dp/B079QNQL1R", size: "s" },
+
+  { id: "pdslide", img: "32", title: "Peak Design Slide", note: "Camera strap. Colour Carryology", cat: "Accessories", store: "Peak Design", price: 89.99, url: "https://www.peakdesign.com/eu/products/slide?Color=Carryology", size: "s" },
+  { id: "pdleash", img: "33", title: "Peak Design Leash", note: "Camera strap. Colour Ibis", cat: "Accessories", store: "Peak Design", price: 49.99, url: "https://www.peakdesign.com/eu/products/leash?Color=Ibis", size: "s" },
+  { id: "pdcuff", img: "34", title: "Peak Design Cuff", note: "Wrist strap. Colour Ibis", cat: "Accessories", store: "Peak Design", price: 39.99, url: "https://www.peakdesign.com/eu/products/cuff?Color=Ibis", size: "s" },
+  { id: "pdcapture", img: "35", title: "Peak Design Capture", note: "Camera clip. Colour Eclipse", cat: "Accessories", store: "Peak Design", price: 79.99, url: "https://www.peakdesign.com/eu/products/capture?Color=Eclipse", size: "s" },
+
+  { id: "mousbag", img: "37", title: "Mous Stone flap backpack", note: "20L", cat: "Accessories", store: "Mous", price: 164.99, url: "https://eu.mous.co/en-eu/products/day-backpack-stone?variant=41705702162525", size: "w" },
+  { id: "jumper", img: "36", title: "M&S Air Yarn crew neck jumper", note: "Dark evergreen, size L", cat: "Clothing", store: "Marks & Spencer", price: 26.0, url: "https://www.marksandspencer.com/ie/air-yarn-crew-neck-jumper/p/clp61217470?color=DARKEVERGREEN", size: "s" },
+  { id: "gloves", img: "38", title: "Vallerret Markhof Pro V4 photography gloves", note: "Size XL", cat: "Accessories", store: "Vallerret", price: 89.95, url: "https://photographygloves.com/products/markhof-pro-v4?variant=58703434318168", size: "s" }
 ];
