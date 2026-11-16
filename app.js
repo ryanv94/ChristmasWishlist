@@ -301,7 +301,7 @@
 
   /* ---------- footer + boot ---------- */
   const total = WISHES.reduce((s, w) => s + w.price, 0);
-  $("footSmall").textContent = `The whole list comes to ${fmt(Math.round(total))}, so please don't. One thing from it is plenty. Prices are what I saw when I made the list, and sizes and colours are in the notes.`;
+  $("footSmall").textContent = `Prices are what I saw when I made the list, and sizes and colours are in the notes.`;
   applyFilters();
   syncPicks();
   refreshTaken();
