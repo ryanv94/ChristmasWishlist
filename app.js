@@ -11,7 +11,7 @@
   const img = (w) => (w.img ? `assets/img/${w.img}.webp` : "");
 
   /* ---------- state ---------- */
-  const state = { cat: "All", budget: 250, sort: "curated", picks: new Set() };
+  const state = { cat: "All", budget: 250, sort: "curated", picks: new Set(), taken: new Set() };
   const max = Math.ceil(Math.max(...WISHES.map((w) => w.price)) / 5) * 5;
   try { JSON.parse(localStorage.getItem("rv-picks") || "[]").forEach((id) => WISHES.some((w) => w.id === id) && state.picks.add(id)); } catch (e) {}
   const savePicks = () => { try { localStorage.setItem("rv-picks", JSON.stringify([...state.picks])); } catch (e) {} };
@@ -115,7 +115,7 @@
     if (e.target.closest(".tile-main")) openSpot(id);
   });
 
-  const eligible = () => WISHES.filter((w) => (state.cat === "All" || w.cat === state.cat) && w.price <= state.budget);
+  const eligible = () => WISHES.filter((w) => (state.cat === "All" || w.cat === state.cat) && w.price <= state.budget && !state.taken.has(w.id));
 
   function applyFilters() {
     // the curated mosaic only holds together unfiltered and unsorted; otherwise use an even grid
@@ -135,7 +135,7 @@
       ? `Showing ${inCatCount} ${inCatCount === 1 ? "wish" : "wishes"}`
       : `${shown} of ${inCatCount} within ${fmt(state.budget)}`;
     $("empty").hidden = shown > 0;
-    $("surprise").disabled = shown === 0;
+    $("surprise").disabled = eligible().length === 0;
   }
 
   /* ---------- picks ---------- */
@@ -192,11 +192,52 @@
     $("spotPrice").textContent = fmt(w.price);
     const buy = $("spotBuy");
     buy.href = w.url; buy.textContent = `Buy at ${w.store}`;
+    renderBought(w);
     const on = state.picks.has(w.id);
     $("spotPick").setAttribute("aria-pressed", on);
     $("spotPick").textContent = on ? "In my picks" : "Add to my picks";
     if (settle) { art.classList.remove("settle"); void art.offsetWidth; art.classList.add("settle"); }
   }
+
+  /* ---------- shared "bought" state ---------- */
+  const bought = $("spotBought"), takenMsg = $("spotTaken");
+  let live = false, saving = null; // live: the last list request succeeded; saving: id with a write in flight
+  function renderBought(w, msg) {
+    const taken = state.taken.has(w.id);
+    $("spotBuy").hidden = taken;
+    bought.hidden = !(Purchases.enabled && live);
+    bought.disabled = saving === w.id;
+    bought.textContent = saving === w.id ? "Saving..." : taken ? "Undo" : "Mark as bought";
+    takenMsg.hidden = !taken && !msg;
+    takenMsg.textContent = msg || (taken ? "Marked as bought" : "");
+  }
+  function applyTaken() {
+    WISHES.forEach((w) => tiles.get(w.id).classList.toggle("taken", state.taken.has(w.id)));
+    $("surprise").disabled = eligible().length === 0;
+    if (current) renderBought(current);
+  }
+  async function refreshTaken() {
+    if (!Purchases.enabled) return;
+    try { state.taken = new Set(await Purchases.list()); live = true; applyTaken(); } catch (e) {}
+  }
+  bought.addEventListener("click", async () => {
+    const w = current, wasTaken = state.taken.has(w.id);
+    if (wasTaken && !confirm("Undo this purchase mark?")) return;
+    saving = w.id; renderBought(w);
+    let msg;
+    try {
+      if (wasTaken) { await Purchases.release(w.id); state.taken.delete(w.id); }
+      else {
+        const r = await Purchases.claim(w.id);
+        state.taken.add(w.id);
+        if (!r.ok) msg = "Someone already marked this as bought";
+      }
+    } catch (e) { msg = "Couldn't save, try again"; }
+    saving = null;
+    applyTaken();
+    if (current === w) renderBought(w, msg);
+  });
+  addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") refreshTaken(); });
 
   function openSpot(id) {
     surpriseMode = false;
@@ -260,7 +301,8 @@
 
   /* ---------- footer + boot ---------- */
   const total = WISHES.reduce((s, w) => s + w.price, 0);
-  $("footSmall").textContent = `The whole list comes to ${fmt(Math.round(total))}, so please don't. One thing from it is plenty. Prices are what I saw when I made the list, and sizes and colours are in the notes.`;
+  $("footSmall").textContent = `Prices are what I saw when I made the list, and sizes and colours are in the notes.`;
   applyFilters();
   syncPicks();
+  refreshTaken();
 })();

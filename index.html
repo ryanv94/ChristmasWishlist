@@ -89,9 +89,11 @@
       <h2 id="spotTitle"></h2>
       <p class="spot-note" id="spotNote"></p>
       <p class="spot-price" id="spotPrice"></p>
+      <p class="spot-taken" id="spotTaken" role="status" hidden></p>
       <div class="spot-actions">
         <a class="btn btn-solid" id="spotBuy" target="_blank" rel="noopener noreferrer">Buy</a>
         <button class="btn btn-line" id="spotPick" type="button" aria-pressed="false">Add to my picks</button>
+        <button class="btn btn-line" id="spotBought" type="button" hidden>Mark as bought</button>
       </div>
       <div class="spot-nav">
         <button class="link" id="spotPrev" type="button">Previous</button>
@@ -101,6 +103,8 @@
     </div>
   </dialog>
 
+  <script src="config.js"></script>
+  <script src="purchases.js"></script>
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
