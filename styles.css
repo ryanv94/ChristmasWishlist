@@ -392,7 +392,10 @@ h1 .line:nth-child(3) > span { animation-delay: 180ms; }
   .tile.w, .tile.b, .tile.right { grid-column: span 6; }
   .tile.b { grid-row: span 3; }
   .spot[open] { grid-template-columns: 1fr; overflow: auto; }
-  .spot-art { min-height: 0; height: 42svh; }
+  .spot-art { min-height: 0; height: 42svh; overflow: hidden; }
+  /* take the image out of flow so its natural height can't size the row and spill over the text below */
+  .spot-art img { position: absolute; inset: var(--s5); width: calc(100% - 2 * var(--s5)); height: calc(100% - 2 * var(--s5)); max-height: none; }
+  .spot-art.cover img { inset: 0; width: 100%; height: 100%; }
   .spot-body { padding: var(--s5); overflow: visible; }
   .spot-nav { padding-top: var(--s5); }
 }
