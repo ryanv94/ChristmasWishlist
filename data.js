@@ -48,5 +48,15 @@ window.WISHES = [
 
   { id: "mousbag", img: "37", title: "Mous Stone flap backpack", note: "20L", cat: "Accessories", store: "Mous", price: 164.99, url: "https://eu.mous.co/en-eu/products/day-backpack-stone?variant=41705702162525", size: "w" },
   { id: "jumper", img: "36", title: "M&S Air Yarn crew neck jumper", note: "Dark evergreen, size L", cat: "Clothing", store: "Marks & Spencer", price: 26.0, url: "https://www.marksandspencer.com/ie/air-yarn-crew-neck-jumper/p/clp61217470?color=DARKEVERGREEN", size: "s" },
-  { id: "gloves", img: "38", title: "Vallerret Markhof Pro V4 photography gloves", note: "Size XL", cat: "Accessories", store: "Vallerret", price: 89.95, url: "https://photographygloves.com/products/markhof-pro-v4?variant=58703434318168", size: "s" }
+  { id: "gloves", img: "38", title: "Vallerret Markhof Pro V4 photography gloves", note: "Size XL", cat: "Accessories", store: "Vallerret", price: 89.95, url: "https://photographygloves.com/products/markhof-pro-v4?variant=58703434318168", size: "s" },
+
+  { id: "petg4", img: "39", title: "Bambu Lab PETG Basic 4 colour pack", note: "Filament, classic colours", cat: "3D Print", store: "Bambu Lab", price: 44.89, url: "https://eu.store.bambulab.com/products/petg-basic-classic-pack", size: "s" },
+  { id: "pla4", img: "40", title: "Bambu Lab PLA Basic 4 colour pack", note: "Filament, beginner's pack", cat: "3D Print", store: "Bambu Lab", price: 50.99, url: "https://eu.store.bambulab.com/products/pla-basic-beginner-s-filament-pack", size: "s" },
+  { id: "plamatte", img: "41", title: "Bambu Lab PLA Matte", note: "1kg with spool, any colour", cat: "3D Print", store: "Bambu Lab", price: 9.0, url: "https://eu.store.bambulab.com/products/pla-matte", size: "s" },
+  { id: "hotends", img: "42", title: "Bambu Lab X2D hotends", note: "Multi-size kit: 0.2, 0.4, 0.6 and 0.8mm", cat: "3D Print", store: "Bambu Lab", price: 59.97, url: "https://eu.store.bambulab.com/products/multi-size-hotends-kit", size: "w" },
+  { id: "plate", img: "43", title: "Bambu Lab print plate", note: "3D effect plate", cat: "3D Print", store: "Bambu Lab", price: 19.99, url: "https://eu.store.bambulab.com/products/bambu-3d-effect-plate", size: "s" },
+  { id: "wankel", img: "44", title: "Wankel engine", note: "Motorised model, print files", cat: "3D Print", store: "Bambu Lab", price: 5.76, url: "https://eu.store.bambulab.com/products/wankel-engine-motorized", size: "s" },
+  { id: "wdt", img: "45", title: "Electric coffee WDT tool", note: "Print files and kit", cat: "3D Print", store: "Bambu Lab", price: 29.6, url: "https://eu.store.bambulab.com/products/electric-coffee-wdt-tool-kit-k013", size: "s" },
+  { id: "jet", img: "46", title: "Jet engine model", note: "Components kit, print files", cat: "3D Print", store: "Bambu Lab", price: 20.6, url: "https://eu.store.bambulab.com/products/jet-engine-model-components-kit-006", size: "s" },
+  { id: "petgcf", img: "47", title: "Bambu Lab PETG-CF", note: "Carbon fibre, 1kg with spool", cat: "3D Print", store: "Bambu Lab", price: 35.99, url: "https://eu.store.bambulab.com/products/petg-cf", size: "s" }
 ];
