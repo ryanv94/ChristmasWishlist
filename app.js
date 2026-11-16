@@ -201,12 +201,13 @@
 
   /* ---------- shared "bought" state ---------- */
   const bought = $("spotBought"), takenMsg = $("spotTaken");
+  let live = false, saving = null; // live: the last list request succeeded; saving: id with a write in flight
   function renderBought(w, msg) {
     const taken = state.taken.has(w.id);
     $("spotBuy").hidden = taken;
-    bought.hidden = !Purchases.enabled;
-    bought.disabled = false;
-    bought.textContent = taken ? "Undo" : "Mark as bought";
+    bought.hidden = !(Purchases.enabled && live);
+    bought.disabled = saving === w.id;
+    bought.textContent = saving === w.id ? "Saving..." : taken ? "Undo" : "Mark as bought";
     takenMsg.hidden = !taken && !msg;
     takenMsg.textContent = msg || (taken ? "Marked as bought" : "");
   }
@@ -217,12 +218,12 @@
   }
   async function refreshTaken() {
     if (!Purchases.enabled) return;
-    try { state.taken = new Set(await Purchases.list()); applyTaken(); } catch (e) {}
+    try { state.taken = new Set(await Purchases.list()); live = true; applyTaken(); } catch (e) {}
   }
   bought.addEventListener("click", async () => {
     const w = current, wasTaken = state.taken.has(w.id);
     if (wasTaken && !confirm("Undo this purchase mark?")) return;
-    bought.disabled = true; bought.textContent = "Saving...";
+    saving = w.id; renderBought(w);
     let msg;
     try {
       if (wasTaken) { await Purchases.release(w.id); state.taken.delete(w.id); }
@@ -232,6 +233,7 @@
         if (!r.ok) msg = "Someone already marked this as bought";
       }
     } catch (e) { msg = "Couldn't save, try again"; }
+    saving = null;
     applyTaken();
     if (current === w) renderBought(w, msg);
   });
