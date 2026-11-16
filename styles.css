@@ -294,6 +294,14 @@ h1 .line:nth-child(3) > span { animation-delay: 180ms; }
 
 .tile.over { opacity: .22; filter: grayscale(1); }
 .tile.hide { display: none; }
+.tile.taken .tile-art, .tile.taken .tile-meta { opacity: .45; }
+.tile.taken::after {
+  content: "Taken";
+  position: absolute; top: var(--s3); left: var(--s3);
+  padding: 3px var(--s3); border-radius: 999px;
+  background: var(--ink); color: var(--snow);
+  font-size: .75rem; font-weight: 600; letter-spacing: .02em;
+}
 .empty { margin: var(--s7) 0; color: var(--mute); max-width: 28rem; }
 
 /* ---------- Footer ---------- */
@@ -345,6 +353,7 @@ h1 .line:nth-child(3) > span { animation-delay: 180ms; }
 .spot h2 { margin: 0; font: 500 clamp(1.9rem, 3.4vw, 2.8rem)/1.05 var(--display); letter-spacing: -.02em; }
 .spot-note { margin: var(--s4) 0 0; color: var(--mute); max-width: 30ch; }
 .spot-price { margin: var(--s6) 0 0; font: 400 clamp(2.6rem, 5vw, 3.6rem)/1 var(--display); font-variant-numeric: lining-nums; color: var(--snow); }
+.spot-taken { margin: var(--s4) 0 0; color: var(--brass); font-weight: 600; }
 .spot-actions { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s6); }
 .spot-nav { margin-top: auto; padding-top: var(--s7); display: flex; gap: var(--s5); width: 100%; }
 .link { background: none; border: 0; padding: var(--s1) 0; color: var(--mute); border-bottom: 1px solid transparent; transition: color 150ms ease-out, border-color 150ms ease-out; }
