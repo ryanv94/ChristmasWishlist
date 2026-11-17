@@ -58,5 +58,7 @@ window.WISHES = [
   { id: "wankel", img: "44", title: "Wankel engine", note: "Motorised model, print files", cat: "3D Print", store: "Bambu Lab", price: 5.76, url: "https://eu.store.bambulab.com/products/wankel-engine-motorized", size: "s" },
   { id: "wdt", img: "45", title: "Electric coffee WDT tool", note: "Print files and kit", cat: "3D Print", store: "Bambu Lab", price: 29.6, url: "https://eu.store.bambulab.com/products/electric-coffee-wdt-tool-kit-k013", size: "s" },
   { id: "jet", img: "46", title: "Jet engine model", note: "Components kit, print files", cat: "3D Print", store: "Bambu Lab", price: 20.6, url: "https://eu.store.bambulab.com/products/jet-engine-model-components-kit-006", size: "s" },
-  { id: "petgcf", img: "47", title: "Bambu Lab PETG-CF", note: "Carbon fibre, 1kg with spool", cat: "3D Print", store: "Bambu Lab", price: 35.99, url: "https://eu.store.bambulab.com/products/petg-cf", size: "s" }
+  { id: "petgcf", img: "47", title: "Bambu Lab PETG-CF", note: "Carbon fibre, 1kg with spool", cat: "3D Print", store: "Bambu Lab", price: 35.99, url: "https://eu.store.bambulab.com/products/petg-cf", size: "s" },
+
+  { id: "throw", img: "48", title: "Avoca cashmere blend throw", note: "Ombre camel, size L", cat: "Accessories", store: "Avoca", price: 195.0, url: "https://avoca.com/products/ombre-camel-cashmere-blend-throw?variant=57047859560783", size: "s" }
 ];
