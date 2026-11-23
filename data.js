@@ -60,5 +60,11 @@ window.WISHES = [
   { id: "jet", img: "46", title: "Jet engine model", note: "Components kit, print files", cat: "3D Print", store: "Bambu Lab", price: 20.6, url: "https://eu.store.bambulab.com/products/jet-engine-model-components-kit-006", size: "s" },
   { id: "petgcf", img: "47", title: "Bambu Lab PETG-CF", note: "Carbon fibre, 1kg with spool", cat: "3D Print", store: "Bambu Lab", price: 35.99, url: "https://eu.store.bambulab.com/products/petg-cf", size: "s" },
 
-  { id: "throw", img: "48", title: "Avoca cashmere blend throw", note: "Ombre camel, size L", cat: "Accessories", store: "Avoca", price: 195.0, url: "https://avoca.com/products/ombre-camel-cashmere-blend-throw?variant=57047859560783", size: "s" }
+  { id: "throw", img: "48", title: "Avoca cashmere blend throw", note: "Ombre camel, size L", cat: "Accessories", store: "Avoca", price: 195.0, url: "https://avoca.com/products/ombre-camel-cashmere-blend-throw?variant=57047859560783", size: "s" },
+
+  { id: "speedmaster", img: "49", title: "Seiko Mod Speedmaster", note: "White band", cat: "Watches", store: "Emperor Mods", price: 230.0, url: "https://emperormods.com/products/seiko-mod-speedmaster-ember-creamsicle?variant=57134861451595", size: "s" },
+  { id: "daytona", img: "50", title: "Seiko Mod Daytona", note: "Pink Panther, light pink dial", cat: "Watches", store: "Emperor Mods", price: 230.0, url: "https://emperormods.com/products/seiko-daytona-mod-pink-panther-light-pink-dial?variant=57676166758731", size: "w" },
+  { id: "watchcase", img: "51", title: "Watch travel case", note: "Holds 2 watches, green", cat: "Watches", store: "Amazon IE", price: 30.82, url: "https://www.amazon.ie/dp/B0GJCX7MYQ", size: "s" },
+  { id: "winder", img: "52", title: "Watch winder", note: "Automatic, leather", cat: "Watches", store: "Amazon IE", price: 33.29, url: "https://www.amazon.ie/dp/B0FF4WYJLH", size: "s" },
+  { id: "eufy", img: "53", title: "Eufy smart scale", note: "Bluetooth body tracking", cat: "Tech", store: "Amazon IE", price: 56.9, url: "https://www.amazon.ie/dp/B0BRBZRTM2", size: "s" }
 ];

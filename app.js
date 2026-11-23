@@ -3,7 +3,7 @@
   const $ = (id) => document.getElementById(id);
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   // One tint per category; the filter chips carry the same colours as a legend.
-  const TONES = { LEGO: "#d4b069", Tech: "#b8c6cf", Clothing: "#c0c8b0", Coffee: "#c7a68a", Car: "#b3b0c9", Accessories: "#dbb7b1", "3D Print": "#a9cfc4" };
+  const TONES = { LEGO: "#d4b069", Tech: "#b8c6cf", Clothing: "#c0c8b0", Coffee: "#c7a68a", Car: "#b3b0c9", Accessories: "#dbb7b1", "3D Print": "#a9cfc4", Watches: "#c9b8d6" };
 
   // Transparent cut-outs keep their true colours; only white-background photos are blended into the tile tint.
   const CUTOUT = new Set(["01", "02", "03", "04", "05", "06", "14", "23", "25", "26", "27"]);
